@@ -1,23 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
+import { SidebarContainer, NavbarContainer, DashboardContainer } from './components';
+import { Container, Row, Col } from 'react-bootstrap';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <NavbarContainer />
       </header>
+      <main>
+        <Container fluid>
+          <Row>
+            <Col md={3} className='px-0' style={{ backgroundColor: '#f8f9fa' }}><SidebarContainer /></Col>
+            <Col md={9}><DashboardContainer /></Col>
+          </Row>
+        </Container>
+      </main>
+      <footer>
+      </footer>
     </div>
   );
 }
