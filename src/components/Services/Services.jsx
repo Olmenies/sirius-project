@@ -1,4 +1,5 @@
 // Imports
+import { useState } from 'react';
 import { Container, Row, Col, Card, Button, Dropdown } from 'react-bootstrap';
 import { AiFillDollarCircle, AiFillCheckCircle } from 'react-icons/ai';
 
@@ -6,17 +7,32 @@ import './styles.css';
 
 // Component start
 const Services = () => {
+    const [actualStatus, setActualStatus] = useState(''); //Desired status will be saved on actualStatus.value
 
-    const CustomDropdown = () => {
+    const ServicesStatusDropdown = () => {
+
+        const getSelectedValue = (e) => {
+            setActualStatus(e.target);
+        }
+
         return (
-            <Dropdown>
-                <Dropdown.Toggle variant="success" id="dropdown-basic">
-                    Modificar
+            <Dropdown >
+                <Dropdown.Toggle variant="success" id="dropdown-basic" style={{ width: '7rem' }}>
+                    {actualStatus.innerHTML ? actualStatus.innerHTML : 'Modificar'}
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">Activo</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">Inactivo</Dropdown.Item>
+                    <Dropdown.Item
+                        as='button'
+                        value='active'
+                        onClick={e => getSelectedValue(e)}
+                    >
+                        Activo</Dropdown.Item>
+                    <Dropdown.Item
+                        value='inactive'
+                        onClick={e => getSelectedValue(e)}
+                    >
+                        Inactivo</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
         );
@@ -27,17 +43,19 @@ const Services = () => {
         return (
             <Card
                 style={{
-                    backgroundColor: (type === 'dropdown' && variable === 'Activo' )
-                    ? '#D5E8D4'
-                    : (type === 'dropdown' && variable === 'Inactivo') && 'red'
+                    backgroundColor: (type === 'dropdown' && variable === 'Activo')
+                        ? '#D5E8D4'
+                        : (type === 'dropdown' && variable === 'Inactivo') && '#DB2843'
                 }}
             >
                 <Card.Body>
-                    <Card.Text className='customCardText'>
+                    <div className='customCardDiv'>
                         {image}
-                        <span>{title}: {variable}</span>
+                        <Card.Text className='my-0'>
+                            {title}: {variable}
+                        </Card.Text>
                         {extra}
-                    </Card.Text>
+                    </div>
                 </Card.Body>
             </Card>
         );
@@ -45,14 +63,14 @@ const Services = () => {
 
     const servicesElements = [
         {
-            image: <AiFillCheckCircle />,
+            image: <AiFillCheckCircle size={50} />,
             title: 'Estado',
             variable: 'Activo',
-            extra: <CustomDropdown />,
+            extra: <ServicesStatusDropdown />,
             type: 'dropdown'
         },
         {
-            image: <AiFillDollarCircle />,
+            image: <AiFillDollarCircle size={50} />,
             title: 'Precio',
             variable: '$69',
             extra: <Button>Modificar</Button>,
@@ -70,9 +88,9 @@ const Services = () => {
             </Row>
 
             <Row>
-                {servicesElements.map(el => {
+                {servicesElements.map((el, i) => {
                     return (
-                        <Col>
+                        <Col key={i}>
                             <CustomCard
                                 image={el.image}
                                 title={el.title}
