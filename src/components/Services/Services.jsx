@@ -41,13 +41,7 @@ const Services = () => {
     const CustomCard = ({ image, title, variable, extra, type }) => {
         // Conditional styling has to be improved once I'm less burned out
         return (
-            <Card
-                style={{
-                    backgroundColor: (type === 'dropdown' && variable === 'Activo')
-                        ? '#D5E8D4'
-                        : (type === 'dropdown' && variable === 'Inactivo') && '#DB2843'
-                }}
-            >
+            <Card>
                 <Card.Body>
                     <div className='customCardDiv'>
                         {image}
