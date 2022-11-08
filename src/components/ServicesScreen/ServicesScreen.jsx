@@ -1,27 +1,31 @@
 // Imports
-import { useState, useEffect } from 'react';
-import { Container, Row, Col, Card, Button, Dropdown, Form, Modal } from 'react-bootstrap';
+import { useState } from 'react';
+import { Container, Row, Col, Button, Dropdown, Form, Modal } from 'react-bootstrap';
 import { AiFillDollarCircle, AiFillCheckCircle } from 'react-icons/ai';
+import { CustomCardContainer } from '../';
 
 import './styles.css';
 
 // Component start
-const Services = () => {
+const ServicesScreen = () => {
+    console.log('ServicesScreen');
+
     const [isModalVisible, setIsModalVisible] = useState(false);
-    const [actualStatus, setActualStatus] = useState(''); //Desired status will be saved on actualStatus.value
+    const [actualStatus, setActualStatus] = useState('Inactivo'); //Desired status will be saved on actualStatus.value
     const [actualPrice, setActualPrice] = useState(0);
-    
 
     const handleOnCloseModal = () => setIsModalVisible(false);
     const handleOnOpenModal = () => setIsModalVisible(true);
     const handleOnSubmit = (e, tempPrice) => {
-        setActualPrice(parseInt(tempPrice))
+        console.log(e);
+        console.log(tempPrice);
+        !isNaN(tempPrice) && setActualPrice(parseInt(tempPrice));
         handleOnCloseModal();
     }
 
     const ServicesPriceModal = ({ value }) => {
 
-        const [tempPrice, setTempPrice] = useState('');
+        const [tempPrice, setTempPrice] = useState();
 
         return (
             <Modal show={isModalVisible} onHide={handleOnCloseModal}>
@@ -39,6 +43,7 @@ const Services = () => {
                                 type="number"
                                 min={0}
                                 placeholder={actualPrice}
+                                required
                                 autoFocus
                                 onChange={e => setTempPrice(e.target.value)}
                                 value={tempPrice}
@@ -87,34 +92,11 @@ const Services = () => {
         );
     }
 
-    const CustomCard = ({ image, title, variable, extra }) => {
-        return (
-            <Card>
-                <Card.Body>
-                    <div className='customCardDiv'>
-                        {image}
-                        <Card.Text className='my-0'>
-                            {title}: {variable}
-                        </Card.Text>
-                        {extra.map((el, i) => {
-                            return (
-                                {
-                                    ...el,
-                                    key: i
-                                }
-                            );
-                        })}
-                    </div>
-                </Card.Body>
-            </Card>
-        );
-    }
-
     const servicesElements = [
         {
             image: <AiFillCheckCircle size={50} />,
             title: 'Estado',
-            variable: 'Activo',
+            variable: '',
             extra: [<ServicesStatusDropdown />],
             type: 'dropdown'
         },
@@ -122,14 +104,16 @@ const Services = () => {
             image: <AiFillDollarCircle size={50} />,
             title: 'Precio',
             variable: actualPrice,
-            extra: [<Button onClick={handleOnOpenModal}>Modificar</Button>, <ServicesPriceModal value={69} />],
+            extra: [
+                <Button onClick={handleOnOpenModal}>Modificar</Button>,
+                <ServicesPriceModal value={actualPrice} />
+            ],
             type: 'modal'
         }
     ];
 
     return (
         <Container>
-
             <ServicesPriceModal />
 
             <Row>
@@ -143,11 +127,8 @@ const Services = () => {
                 {servicesElements.map((el, i) => {
                     return (
                         <Col key={i}>
-                            <CustomCard
-                                image={el.image}
-                                title={el.title}
-                                variable={el.variable}
-                                extra={el.extra}
+                            <CustomCardContainer
+                                el={el}
                             />
                         </Col>
                     );
@@ -158,4 +139,4 @@ const Services = () => {
 }
 
 // Export
-export default Services;
+export default ServicesScreen;

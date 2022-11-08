@@ -1,6 +1,6 @@
 // Imports
 import {Container, Row, Col} from 'react-bootstrap';
-import {Services} from '..';
+import {ServicesScreenContainer} from '..';
 import './styles.css'
 
 // Component start
@@ -9,7 +9,7 @@ const Dashboard = () => {
         <Container>
             <Row>
                 <Col>
-                    <Services />
+                    <ServicesScreenContainer />
                 </Col>
             </Row>
         </Container>
