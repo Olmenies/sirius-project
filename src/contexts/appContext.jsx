@@ -1,5 +1,5 @@
 // Imports
-import { useState, createContext, useContext } from 'react';
+import { useState, createContext, useContext, useEffect } from 'react';
 
 // Instanciate a context
 const AppContext = createContext([]);
@@ -11,10 +11,26 @@ export const useAppContext = () => useContext(AppContext);
 export const AppContextProvider = ({ children }) => {
     
     const [testValue, setTestValue] = useState('hola');
+    const [isActive, setIsActive] = useState(false);
+    const [price, setPrice] = useState(0);
+
+    const updateStatus = (status) => {
+        setIsActive(status);
+    };
+
+    const updatePrice = (price) => {
+        setPrice(price);
+    };
+
+    useEffect(() => {
+        console.log(isActive);
+        console.log(price);
+    });
+
 
     return (
         <AppContext.Provider
-            value={{testValue}}
+            value={{testValue, updateStatus, updatePrice}}
         >
             {children}
         </AppContext.Provider>
