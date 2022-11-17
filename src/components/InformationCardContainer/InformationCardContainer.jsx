@@ -9,7 +9,6 @@ const InformationCardContainer = ({ el }) => {
             image={el.image}
             title={el.title}
             variable={el.variable}
-            extra={el.extra}
         />
     );
 }

@@ -11,38 +11,29 @@ const InformationScreen = () => {
         {
             image: <AiFillCar size={40} />,
             title: 'Total tránsito generado',
-            variable: 10,
-            extra: [],
-        },
+            variable: 10,        },
         {
             image: <AiFillCar size={40} />,
             title: 'Patentes reconocidas',
-            variable: 10,
-            extra: [],
-        },
+            variable: 10,        },
         {
             image: <AiFillCar size={40} />,
             title: 'No reconocidas',
-            variable: 10,
-            extra: [],
-        },
+            variable: 10,        },
         {
             image: <RiBillFill size={40} />,
             title: 'Multas emitidas',
             variable: 10,
-            extra: [],
         },
         {
             image: <AiFillDollarCircle size={40} />,
             title: 'Solicitud de pagos emitidos',
             variable: 10,
-            extra: [],
         },
         {
             image: <AiFillDollarCircle size={40} />,
             title: 'Total facturado',
             variable: 10,
-            extra: [],
         }
     ]
 
