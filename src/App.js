@@ -2,7 +2,10 @@ import logo from './logo.svg';
 import './App.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import { AppContextProvider } from '../src/contexts/appContext';
-import { SidebarContainer, NavbarContainer, DashboardContainer } from './components';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { NavbarContainer, ServicesScreenContainer, InformationScreenContainer } from './components';
+
+//<Col md={3} className='px-0' style={{ backgroundColor: '#f8f9fa' }}><SidebarContainer /></Col>
 
 function App() {
   return (
@@ -15,8 +18,14 @@ function App() {
         <main>
           <Container fluid>
             <Row>
-              <Col md={3} className='px-0' style={{ backgroundColor: '#f8f9fa' }}><SidebarContainer /></Col>
-              <Col md={9}><DashboardContainer /></Col>
+              <Col>
+                <BrowserRouter>
+                  <Routes>
+                    <Route path='/' element={<ServicesScreenContainer />}/>
+                    <Route path="/information" element={ <InformationScreenContainer/> }/>
+                  </Routes>
+                </BrowserRouter>
+              </Col>
             </Row>
           </Container>
         </main>

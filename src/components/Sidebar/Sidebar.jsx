@@ -1,14 +1,18 @@
 // Imports
+import { NavLink } from 'react-router-dom';
 import './styles.css';
 
 // Components
 const Sidebar = () => {
-    return(
+    return (
         <div className="sidebar">
             <ul className='sidebarUl px-5 text-left'>
-                
-                <li className='sidebarUlLi'>Servicios</li>
-                <li className='sidebarUlLi'>Información</li>
+                <li className='sidebarUlLi'>
+                    <NavLink to='/'>Servicios</NavLink>W
+                </li>
+                <li className='sidebarUlLi' >
+                    <NavLink to='/information'>Información</NavLink>
+                </li>
             </ul>
         </div>
     );
