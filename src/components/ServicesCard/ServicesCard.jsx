@@ -5,7 +5,7 @@ import { Card } from 'react-bootstrap';
 const CustomCard = ({ image, title, variable, extra }) => {
 
     return (
-        <Card>
+        <Card className='shadow p-3 mb-5 bg-white rounded'>
             <Card.Body>
                 <div className='customCardDiv'>
                     {image}

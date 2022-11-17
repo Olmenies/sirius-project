@@ -2,7 +2,7 @@ export { default as InformationScreenContainer } from './InformationScreenContai
 export { default as InformationCardContainer } from './InformationCardContainer/InformationCardContainer';
 export { default as InformationCard } from './InformationCard/InformationCard';
 export { default as InformationScreen } from './InformationScreen/InformationScreen';
-export { default as NavbarContainer } from './CustomNavbarContainer/CustomNavbarContainer';
+export { default as CustomNavbarContainer } from './CustomNavbarContainer/CustomNavbarContainer';
 export { default as Navbar } from './CustomNavbar/CustomNavbar';
 export { default as ServicesScreenContainer } from './ServicesScreenContainer/ServicesScreenContainer';
 export { default as ServicesScreen } from './ServicesScreen/ServicesScreen';

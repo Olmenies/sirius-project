@@ -4,10 +4,8 @@ import { Sidebar } from "..";
 
 // Component start
 const SidebarContainer = () => {
-    return(
-        <div className="px-0">
-            <Sidebar/>
-        </div>
+    return (
+        <Sidebar />
     )
 }
 

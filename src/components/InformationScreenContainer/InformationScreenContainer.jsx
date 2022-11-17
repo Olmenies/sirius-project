@@ -7,8 +7,8 @@ const InformationScreenContainer = () => {
     return (
         <Container className="px-0 mx-0">
         <Row>
-            <Col md='2' style={{ backgroundColor: '#f8f9fa' }} > <SidebarContainer /> </Col>
-            <Col> <InformationScreen /> </Col>
+            <Col md='2' style={{ backgroundColor: '#3f51b5', padding: 0 }} > <SidebarContainer /> </Col>
+            <Col> <InformationScreen/> </Col>
         </Row>
     </Container>
     );

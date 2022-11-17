@@ -1,14 +1,12 @@
 // Imports
-import {Navbar} from '..';
+import { Navbar } from '..';
 
 // Component start
-const NavbarContainer = () => {
-    return(
-        <div>
-            <Navbar />
-        </div>
+const CustomNavbarContainer = () => {
+    return (
+        <Navbar/>
     );
 }
 
 // Exports
-export default NavbarContainer;
+export default CustomNavbarContainer;

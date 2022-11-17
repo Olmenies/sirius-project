@@ -2,7 +2,7 @@ import './App.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import { AppContextProvider } from '../src/contexts/appContext';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { NavbarContainer, ServicesScreenContainer, InformationScreenContainer } from './components';
+import { CustomNavbarContainer, ServicesScreenContainer, InformationScreenContainer } from './components';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
     <AppContextProvider>
       <div className="App">
         <header>
-          <NavbarContainer />
+          <CustomNavbarContainer />
         </header>
         <main>
           <Container fluid>
