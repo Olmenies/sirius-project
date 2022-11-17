@@ -1,18 +1,18 @@
 // Imports
 import { Card } from 'react-bootstrap';
+import './style.css';
 
 // Component start
-const CustomCard = ({ image, title, variable, extra }) => {
-
-    console.log('cumbia');
+const InformationCard = ({ image, title, variable, extra }) => {
 
     return (
-        <Card>
+        <Card className='shadow p-3 mb-5 bg-white rounded'>
             <Card.Body>
-                <div className='customCardDiv'>
+                <div className='InformationCardDiv'>
                     {image}
                     <Card.Text className='my-0'>
-                        {title}: {variable}
+                        <p>{title}:</p>
+                        <p>{variable}</p>
                     </Card.Text>
                     {extra.map((el, i) => {
                         return (
@@ -29,4 +29,4 @@ const CustomCard = ({ image, title, variable, extra }) => {
 }
 
 // Exports
-export default CustomCard;
+export default InformationCard;

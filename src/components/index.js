@@ -1,12 +1,12 @@
-export { default as CustomCardContainer } from './CustomCardContainer/CustomCardContainer';
-export { default as CustomCard } from './CustomCard/CustomCard';
-export { default as DashboardContainer } from './DashboardContainer/DashboardContainer';
-export { default as Dashboard } from './Dashboard/Dashboard';
 export { default as InformationScreenContainer } from './InformationScreenContainer/InformationScreenContainer';
+export { default as InformationCardContainer } from './InformationCardContainer/InformationCardContainer';
+export { default as InformationCard } from './InformationCard/InformationCard';
 export { default as InformationScreen } from './InformationScreen/InformationScreen';
 export { default as NavbarContainer } from './CustomNavbarContainer/CustomNavbarContainer';
 export { default as Navbar } from './CustomNavbar/CustomNavbar';
 export { default as ServicesScreenContainer } from './ServicesScreenContainer/ServicesScreenContainer';
 export { default as ServicesScreen } from './ServicesScreen/ServicesScreen';
 export { default as SidebarContainer } from './SidebarContainer/SidebarContainer';
+export { default as ServicesCardContainer } from './ServicesCardContainer/ServicesCardContainer';
+export { default as ServicesCard } from './ServicesCard/ServicesCard';
 export { default as Sidebar } from './Sidebar/Sidebar';

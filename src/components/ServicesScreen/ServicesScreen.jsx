@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Container, Row, Col, Button, Dropdown, Form, Modal } from 'react-bootstrap';
 import { AiFillDollarCircle, AiFillCheckCircle } from 'react-icons/ai';
-import { CustomCardContainer } from '../';
+import { ServicesCardContainer } from '../';
 
 import './styles.css';
 
@@ -127,7 +127,7 @@ const ServicesScreen = () => {
                 {servicesElements.map((el, i) => {
                     return (
                         <Col key={i}>
-                            <CustomCardContainer
+                            <ServicesCardContainer
                                 el={el}
                             />
                         </Col>

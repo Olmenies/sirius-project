@@ -8,7 +8,7 @@ const Sidebar = () => {
         <div className="sidebar">
             <ul className='sidebarUl px-5 text-left'>
                 <li className='sidebarUlLi'>
-                    <NavLink to='/'>Servicios</NavLink>W
+                    <NavLink to='/'>Servicios</NavLink>
                 </li>
                 <li className='sidebarUlLi' >
                     <NavLink to='/information'>Información</NavLink>

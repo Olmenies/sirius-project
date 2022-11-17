@@ -1,11 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import { AppContextProvider } from '../src/contexts/appContext';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { NavbarContainer, ServicesScreenContainer, InformationScreenContainer } from './components';
-
-//<Col md={3} className='px-0' style={{ backgroundColor: '#f8f9fa' }}><SidebarContainer /></Col>
 
 function App() {
   return (
@@ -21,8 +18,9 @@ function App() {
               <Col>
                 <BrowserRouter>
                   <Routes>
-                    <Route path='/' element={<ServicesScreenContainer />}/>
-                    <Route path="/information" element={ <InformationScreenContainer/> }/>
+                    <Route path='/' element={<ServicesScreenContainer />} />
+                    <Route path="/information" element={<InformationScreenContainer />} />
+                    <Route path="*" element={<ServicesScreenContainer />} />
                   </Routes>
                 </BrowserRouter>
               </Col>
@@ -33,7 +31,6 @@ function App() {
         </footer>
       </div>
     </AppContextProvider>
-
   );
 }
 //<AppContextProvider></AppContextProvider>
