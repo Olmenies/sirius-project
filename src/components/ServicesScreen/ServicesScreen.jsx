@@ -121,7 +121,7 @@ const ServicesScreen = () => {
     }, [actualPrice, actualStatus]);
 
     return (
-        <Container>
+        <Container className='mt-2' >
             <ServicesPriceModal />
 
             <Row>

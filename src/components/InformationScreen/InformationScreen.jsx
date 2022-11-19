@@ -38,7 +38,7 @@ const InformationScreen = () => {
     ]
 
     return (
-        <Container>
+        <Container className='mt-2'>
             <Row>
                 <Col className='text-left'>
                     <h2>Información</h2>

@@ -23,7 +23,7 @@
     text-decoration: none;
 }
 
-.sidebarNavLink:hover p{
+.sidebarNavLink:hover *{
     color: white;
 }
 
