@@ -3,7 +3,9 @@ export { default as InformationCardContainer } from './InformationCardContainer/
 export { default as InformationCard } from './InformationCard/InformationCard';
 export { default as InformationScreen } from './InformationScreen/InformationScreen';
 export { default as CustomNavbarContainer } from './CustomNavbarContainer/CustomNavbarContainer';
-export { default as Navbar } from './CustomNavbar/CustomNavbar';
+export { default as CustomNavbar } from './CustomNavbar/CustomNavbar';
+export { default as DynamicIconContainer } from './DynamicIconContainer/DynamicIconContainer';
+export { default as DynamicIcon } from './DynamicIcon/DynamicIcon';
 export { default as ServicesScreenContainer } from './ServicesScreenContainer/ServicesScreenContainer';
 export { default as ServicesScreen } from './ServicesScreen/ServicesScreen';
 export { default as SidebarContainer } from './SidebarContainer/SidebarContainer';

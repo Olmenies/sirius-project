@@ -1,0 +1,16 @@
+[
+    {
+        "image": {
+            "title": "AiFillCheckCircle",
+            "props": [
+                {
+                    "size":50
+                }
+            ]
+        },
+        "title": "Estado",
+        "variable": "",
+        "extra": ["ServicesStatusDropdown"],
+        "type": "dropdown"
+    }
+]

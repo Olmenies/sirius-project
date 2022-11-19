@@ -13,6 +13,30 @@ const ServicesScreen = () => {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [actualStatus, setActualStatus] = useState(false); //Desired status will be saved on actualStatus.value
     const [actualPrice, setActualPrice] = useState(0);
+    const [data, setData] = useState([]);
+
+    const getData = () => {
+        fetch('./data/services.json', 
+        {
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }    
+        })
+
+        .then((res) => {
+            console.log(res);
+            return res.json();
+        })
+        .then((res) => {
+            console.log(res);
+            setData(res);
+        })
+    }
+
+    useEffect(() => {
+        getData();
+    },[]);
 
     const { updateStatus, updatePrice } = useAppContext();
 
@@ -94,7 +118,7 @@ const ServicesScreen = () => {
             </Dropdown>
         );
     }
-
+/*
     const servicesElements = [
         {
             image: <AiFillCheckCircle size={50} />,
@@ -114,6 +138,7 @@ const ServicesScreen = () => {
             type: 'modal'
         }
     ];
+    */
 
     useEffect(() => {
         updateStatus(actualStatus);
@@ -132,7 +157,7 @@ const ServicesScreen = () => {
             </Row>
 
             <Row>
-                {servicesElements.map((el, i) => {
+                {data.map((el, i) => {
                     return (
                         <Col key={i}>
                             <ServicesCardContainer

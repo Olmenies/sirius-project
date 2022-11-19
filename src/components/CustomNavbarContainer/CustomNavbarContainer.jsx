@@ -1,10 +1,10 @@
 // Imports
-import { Navbar } from '..';
+import { CustomNavbar } from '..';
 
 // Component start
 const CustomNavbarContainer = () => {
     return (
-        <Navbar/>
+        <CustomNavbar/>
     );
 }
 
