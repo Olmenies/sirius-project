@@ -47,6 +47,7 @@ const ServicesCard = ({ icon, title, variable, extra, type }) => {
                         <Form.Group className="mb-3" controlId="controlInput">
                             <Form.Label>Nuevo precio</Form.Label>
                             <Form.Control
+                                className='inputModal'
                                 type="number"
                                 min={0}
                                 placeholder={actualPrice}

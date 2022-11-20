@@ -1,6 +1,4 @@
 // Imports
-import {useState, useEffect} from 'react';
-import { Container, Row, Col, Button, Dropdown, Form, Modal } from 'react-bootstrap';
 import { ServicesCard } from '..';
 
 // Component start

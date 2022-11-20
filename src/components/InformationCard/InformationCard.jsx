@@ -14,7 +14,7 @@ const InformationCard = ({ icon, title, variable, extra }) => {
                         <DynamicIconContainer icon={icon}/>
                     </div>
                     <Card.Text className=' col-md-10 my-0 informationCardText'>
-                        {title}:{variable}
+                        {title}: {variable}
                     </Card.Text>
                 </div>
             </Card.Body>

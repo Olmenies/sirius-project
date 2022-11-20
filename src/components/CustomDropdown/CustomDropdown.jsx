@@ -20,7 +20,7 @@ const CustomDropdown = () => {
 
         return (
             <Dropdown >
-                <Dropdown.Toggle variant="success" id="dropdown-basic" style={{ width: '7rem' }}>
+                <Dropdown.Toggle variant={actualStatus === true ? 'success' : 'danger'} id="dropdown-basic" style={{ width: '7rem' }}>
                 {actualStatus ? 'Activo' : 'Inactivo'}
                 </Dropdown.Toggle>
 
