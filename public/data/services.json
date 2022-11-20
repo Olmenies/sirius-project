@@ -1,6 +1,6 @@
 [
     {
-        "image": {
+        "icon": {
             "title": "AiFillCheckCircle",
             "props": [
                 {
@@ -12,5 +12,20 @@
         "variable": "",
         "extra": ["ServicesStatusDropdown"],
         "type": "dropdown"
+    },
+    {
+        "icon": {
+            "title": "AiFillDollarCircle",
+            "props": [
+                {
+                    "size":50
+                }
+            ]
+        },
+        "title": "Precio",
+        "variable": 0,
+        "extra": ["ServicesStatusDropdown"],
+        "type": "modal"
     }
+
 ]

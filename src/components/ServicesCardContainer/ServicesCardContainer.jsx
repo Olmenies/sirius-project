@@ -1,12 +1,14 @@
 // Imports
+import {useState, useEffect} from 'react';
+import { Container, Row, Col, Button, Dropdown, Form, Modal } from 'react-bootstrap';
 import { ServicesCard } from '..';
 
 // Component start
-const ServicesCardContainer = ({ el }) => {
+const ServicesCardContainer = ({el}) => {
 
     return (
         <ServicesCard
-            image={el.image}
+            icon={el.icon}
             title={el.title}
             variable={el.variable}
             extra={el.extra}

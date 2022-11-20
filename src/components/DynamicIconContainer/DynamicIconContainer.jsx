@@ -4,11 +4,10 @@ import { createElement } from 'react';
 import * as ReactIcons from 'react-icons/ai'; // Reduce this
 
 // Component start
-const DynamicIconContainer = ({image}) => {
-    const Icon = createElement(ReactIcons[image.title], { size: 50 });
-
+const DynamicIconContainer = ({icon}) => {
+    const Icon = createElement(ReactIcons[icon.title], { size: 50 });
     return (
-        <DynamicIcon image={Icon} />
+        <DynamicIcon icon={Icon} />
     );
 }
 

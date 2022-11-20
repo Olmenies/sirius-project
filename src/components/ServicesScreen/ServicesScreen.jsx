@@ -1,42 +1,16 @@
 // Imports
 import { useEffect, useState } from 'react';
-import { Container, Row, Col, Button, Dropdown, Form, Modal } from 'react-bootstrap';
-import { AiFillDollarCircle, AiFillCheckCircle } from 'react-icons/ai';
+import { Container, Row, Col, Button, Form, Modal } from 'react-bootstrap';
 import { ServicesCardContainer } from '../';
 import { useAppContext } from '../../contexts/appContext';
 
 import './styles.css';
 
 // Component start
-const ServicesScreen = () => {
-
+const ServicesScreen = ({data}) => {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [actualStatus, setActualStatus] = useState(false); //Desired status will be saved on actualStatus.value
     const [actualPrice, setActualPrice] = useState(0);
-    const [data, setData] = useState([]);
-
-    const getData = () => {
-        fetch('./data/services.json', 
-        {
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }    
-        })
-
-        .then((res) => {
-            console.log(res);
-            return res.json();
-        })
-        .then((res) => {
-            console.log(res);
-            setData(res);
-        })
-    }
-
-    useEffect(() => {
-        getData();
-    },[]);
 
     const { updateStatus, updatePrice } = useAppContext();
 
@@ -88,10 +62,10 @@ const ServicesScreen = () => {
             </Modal>
         );
     }
-
+/*
     const ServicesStatusDropdown = () => {
 
-        const getSelectedValue = (e = true) => {
+        const setSelectedValue = (e = true) => {
             setActualStatus(e);
             return (e);
         }
@@ -106,40 +80,19 @@ const ServicesScreen = () => {
                     <Dropdown.Item
                         as='button'
                         value={true}
-                        onClick={e => getSelectedValue(true)}
+                        onClick={e => setSelectedValue(true)}
                     >
                         Activo</Dropdown.Item>
                     <Dropdown.Item
                         value={false}
-                        onClick={e => getSelectedValue(false)}
+                        onClick={e => setSelectedValue(false)}
                     >
                         Inactivo</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
         );
     }
-/*
-    const servicesElements = [
-        {
-            image: <AiFillCheckCircle size={50} />,
-            title: 'Estado',
-            variable: '',
-            extra: [<ServicesStatusDropdown />],
-            type: 'dropdown'
-        },
-        {
-            image: <AiFillDollarCircle size={50} />,
-            title: 'Precio',
-            variable: actualPrice,
-            extra: [
-                <Button onClick={handleOnOpenModal}>Modificar</Button>,
-                <ServicesPriceModal value={actualPrice} />
-            ],
-            type: 'modal'
-        }
-    ];
-    */
-
+*/
     useEffect(() => {
         updateStatus(actualStatus);
         updatePrice(actualPrice);

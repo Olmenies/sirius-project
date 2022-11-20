@@ -1,11 +1,11 @@
 // Imports
-//import 'styles.css';
+import './styles.css';
 
 // Component start
-const DynamicIcon = ({image}) => {
+const DynamicIcon = ({icon}) => {
     return (
         <div>
-            {image}
+            {icon}
         </div>
     );
 }

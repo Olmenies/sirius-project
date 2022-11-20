@@ -22,12 +22,6 @@ export const AppContextProvider = ({ children }) => {
         setPrice(price);
     };
 
-    useEffect(() => {
-        console.log(isActive);
-        console.log(price);
-    });
-
-
     return (
         <AppContext.Provider
             value={{testValue, updateStatus, updatePrice}}

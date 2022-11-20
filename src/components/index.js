@@ -2,6 +2,8 @@ export { default as InformationScreenContainer } from './InformationScreenContai
 export { default as InformationCardContainer } from './InformationCardContainer/InformationCardContainer';
 export { default as InformationCard } from './InformationCard/InformationCard';
 export { default as InformationScreen } from './InformationScreen/InformationScreen';
+export { default as CustomDropdownContainer } from './CustomDropdownContainer/CustomDropdownContainer';
+export { default as CustomDropdown } from './CustomDropdown/CustomDropdown';
 export { default as CustomNavbarContainer } from './CustomNavbarContainer/CustomNavbarContainer';
 export { default as CustomNavbar } from './CustomNavbar/CustomNavbar';
 export { default as DynamicIconContainer } from './DynamicIconContainer/DynamicIconContainer';
