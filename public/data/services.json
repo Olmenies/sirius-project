@@ -24,8 +24,7 @@
         },
         "title": "Precio",
         "variable": 0,
-        "extra": ["ServicesStatusDropdown"],
+        "extra": ["Button"],
         "type": "modal"
     }
-
 ]

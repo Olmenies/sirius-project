@@ -8,99 +8,9 @@ import './styles.css';
 
 // Component start
 const ServicesScreen = ({data}) => {
-    const [isModalVisible, setIsModalVisible] = useState(false);
-    const [actualStatus, setActualStatus] = useState(false); //Desired status will be saved on actualStatus.value
-    const [actualPrice, setActualPrice] = useState(0);
-
-    const { updateStatus, updatePrice } = useAppContext();
-
-    const handleOnCloseModal = () => setIsModalVisible(false);
-    const handleOnOpenModal = () => setIsModalVisible(true);
-    const handleOnSubmit = (e, tempPrice) => {
-        console.log(e);
-        console.log(tempPrice);
-        !isNaN(tempPrice) && setActualPrice(parseFloat(tempPrice));
-        handleOnCloseModal();
-    }
-
-    const ServicesPriceModal = ({ value }) => {
-
-        const [tempPrice, setTempPrice] = useState();
-
-        return (
-            <Modal show={isModalVisible} onHide={handleOnCloseModal}>
-                <Modal.Header>
-                    <Modal.Title>Modificar precio</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <Form.Group className="mb-3">
-                        <Form.Label>Precio actual: ${value}</Form.Label>
-                    </Form.Group>
-                    <Form>
-                        <Form.Group className="mb-3" controlId="controlInput">
-                            <Form.Label>Nuevo precio</Form.Label>
-                            <Form.Control
-                                type="number"
-                                min={0}
-                                placeholder={actualPrice}
-                                required
-                                autoFocus
-                                onChange={e => setTempPrice(e.target.value)}
-                                value={tempPrice}
-                            />
-                        </Form.Group>
-                    </Form>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleOnCloseModal}>
-                        Cerrar
-                    </Button>
-                    <Button variant="primary" type='button' form='myForm' onClick={(e) => handleOnSubmit(e, tempPrice)}>
-                        Guardar cambios
-                    </Button>
-                </Modal.Footer>
-            </Modal>
-        );
-    }
-/*
-    const ServicesStatusDropdown = () => {
-
-        const setSelectedValue = (e = true) => {
-            setActualStatus(e);
-            return (e);
-        }
-
-        return (
-            <Dropdown >
-                <Dropdown.Toggle variant="success" id="dropdown-basic" style={{ width: '7rem' }}>
-                    {actualStatus ? 'Activo' : 'Inactivo'}
-                </Dropdown.Toggle>
-
-                <Dropdown.Menu>
-                    <Dropdown.Item
-                        as='button'
-                        value={true}
-                        onClick={e => setSelectedValue(true)}
-                    >
-                        Activo</Dropdown.Item>
-                    <Dropdown.Item
-                        value={false}
-                        onClick={e => setSelectedValue(false)}
-                    >
-                        Inactivo</Dropdown.Item>
-                </Dropdown.Menu>
-            </Dropdown>
-        );
-    }
-*/
-    useEffect(() => {
-        updateStatus(actualStatus);
-        updatePrice(actualPrice);
-    }, [actualPrice, actualStatus]);
 
     return (
         <Container className='mt-2' >
-            <ServicesPriceModal />
 
             <Row>
                 <Col className='text-left'>
