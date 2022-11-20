@@ -4,7 +4,7 @@ import './styles.css';
 // Component start
 const DynamicIcon = ({icon}) => {
     return (
-        <div>
+        <div className='dynamicIconDiv'>
             {icon}
         </div>
     );

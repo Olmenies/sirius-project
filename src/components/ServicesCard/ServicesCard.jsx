@@ -3,6 +3,7 @@ import { createElement, useState, useEffect } from 'react';
 import { Card, Button, Modal, Form} from 'react-bootstrap';
 import { DynamicIconContainer, CustomDropdownContainer } from '../';
 import { useAppContext } from '../../contexts/appContext';
+import './styles.css';
 
 
 // Component start
@@ -94,10 +95,10 @@ const ServicesCard = ({ icon, title, variable, extra, type }) => {
     }, [actualPrice]);
 
     return (
-        <Card className='shadow p-3 mb-5 bg-white rounded'>
+        <Card className='shadow mb-5 bg-white rounded'>
             <ServicesPriceModal value={actualPrice}/>
             <Card.Body>
-                <div className='customCardDiv'>
+                <div className='servicesCardDiv'>
                     <DynamicIconContainer icon={icon} />
                     <Card.Text className='my-0'>
                         {title}: { type === 'modal' && actualPrice}

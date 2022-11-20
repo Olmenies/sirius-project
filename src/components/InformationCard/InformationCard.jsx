@@ -7,11 +7,13 @@ import './style.css';
 const InformationCard = ({ icon, title, variable, extra }) => {
     
     return (
-        <Card className='shadow p-3 mb-5 bg-white rounded'>
+        <Card className='shadow mb-5 bg-white rounded'>
             <Card.Body>
                 <div className='informationCardDiv'>
-                    <DynamicIconContainer icon={icon}/>
-                    <Card.Text className='my-0 informationCardText'>
+                    <div className='col-md-2'>
+                        <DynamicIconContainer icon={icon}/>
+                    </div>
+                    <Card.Text className=' col-md-10 my-0 informationCardText'>
                         {title}:{variable}
                     </Card.Text>
                 </div>

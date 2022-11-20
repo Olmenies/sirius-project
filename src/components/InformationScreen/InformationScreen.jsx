@@ -7,9 +7,9 @@ import { RiBillFill } from 'react-icons/ri'
 // Component start
 const InformationScreen = ({ data }) => {
     return (
-        <Container className='mt-2'>
+        <Container className='mt-2 pl-4'>
             <Row>
-                <Col className='text-left'>
+                <Col className='text-left mb-4'>
                     <h2>Información</h2>
                     <p>Métricas de los servicios actuales</p>
                 </Col>

@@ -1,0 +1,9 @@
+.dynamicIconDiv{
+    background-color: #3f51b5;
+    padding: 1rem;
+    border-radius: 1rem;
+    position: relative;
+    right: 3rem;
+    bottom: 3rem;
+    width: 5rem;
+}

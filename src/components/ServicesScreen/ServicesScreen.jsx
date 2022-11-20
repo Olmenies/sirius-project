@@ -8,10 +8,10 @@ import './styles.css';
 const ServicesScreen = ({data}) => {
 
     return (
-        <Container className='mt-2' >
+        <Container className='mt-2 pl-4' >
 
             <Row>
-                <Col className='text-left'>
+                <Col className='text-left mb-4'>
                     <h2>Servicios</h2>
                     <p>Vista rápida de los servicios actuales</p>
                 </Col>
