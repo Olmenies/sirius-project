@@ -5,8 +5,8 @@ import { AiFillCar, AiFillDollarCircle } from 'react-icons/ai';
 import { RiBillFill } from 'react-icons/ri'
 
 // Component start
-const InformationScreen = () => {
-
+const InformationScreen = ({data}) => {
+/*
     const informationElements = [
         {
             image: <AiFillCar size={40} />,
@@ -36,7 +36,7 @@ const InformationScreen = () => {
             variable: 10,
         }
     ]
-
+*/
     return (
         <Container className='mt-2'>
             <Row>
@@ -47,7 +47,7 @@ const InformationScreen = () => {
             </Row>
             <Row>
                 {
-                    informationElements.map(el => {
+                    data.map(el => {
                         return (
                             <Col className='col-md-4'>
                                 <InformationCardContainer el={el} />

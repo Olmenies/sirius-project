@@ -1,0 +1,32 @@
+[
+    {
+        "image": "AiFillCar",
+        "title": "Total tránsito generado",
+        "variable": 10
+    },
+    {
+        "image": "AiFillCar",
+        "title": "Patentes reconocidas",
+        "variable": 10
+    },
+    {
+        "image": "AiFillCar",
+        "title": "No reconocidas",
+        "variable": 10
+    },
+    {
+        "image": "RiBillFill",
+        "title": "Multas emitidas",
+        "variable": 10
+    },
+    {
+        "image": "AiFillDollarCircle",
+        "title": "Solicitud de pagos emitidos",
+        "variable": 10
+    },
+    {
+        "image": "AiFillDollarCircle",
+        "title": "Total facturado",
+        "variable": 10
+    }
+]
