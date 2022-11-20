@@ -5,38 +5,7 @@ import { AiFillCar, AiFillDollarCircle } from 'react-icons/ai';
 import { RiBillFill } from 'react-icons/ri'
 
 // Component start
-const InformationScreen = ({data}) => {
-/*
-    const informationElements = [
-        {
-            image: <AiFillCar size={40} />,
-            title: 'Total tránsito generado',
-            variable: 10,        },
-        {
-            image: <AiFillCar size={40} />,
-            title: 'Patentes reconocidas',
-            variable: 10,        },
-        {
-            image: <AiFillCar size={40} />,
-            title: 'No reconocidas',
-            variable: 10,        },
-        {
-            image: <RiBillFill size={40} />,
-            title: 'Multas emitidas',
-            variable: 10,
-        },
-        {
-            image: <AiFillDollarCircle size={40} />,
-            title: 'Solicitud de pagos emitidos',
-            variable: 10,
-        },
-        {
-            image: <AiFillDollarCircle size={40} />,
-            title: 'Total facturado',
-            variable: 10,
-        }
-    ]
-*/
+const InformationScreen = ({ data }) => {
     return (
         <Container className='mt-2'>
             <Row>
@@ -47,9 +16,9 @@ const InformationScreen = ({data}) => {
             </Row>
             <Row>
                 {
-                    data.map(el => {
+                    data.map((el, i) => {
                         return (
-                            <Col className='col-md-4'>
+                            <Col className='col-md-4' key={i}>
                                 <InformationCardContainer el={el} />
                             </Col>
                         );

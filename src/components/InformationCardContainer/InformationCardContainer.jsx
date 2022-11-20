@@ -6,7 +6,7 @@ const InformationCardContainer = ({ el }) => {
 
     return (
         <InformationCard
-            image={el.image}
+            icon={el.icon}
             title={el.title}
             variable={el.variable}
         />

@@ -1,18 +1,18 @@
 // Imports
 import { Card } from 'react-bootstrap';
+import {DynamicIconContainer} from '../';
 import './style.css';
 
 // Component start
-const InformationCard = ({ image, title, variable, extra }) => {
-
+const InformationCard = ({ icon, title, variable, extra }) => {
+    
     return (
         <Card className='shadow p-3 mb-5 bg-white rounded'>
             <Card.Body>
                 <div className='informationCardDiv'>
-                    {image}
+                    <DynamicIconContainer icon={icon}/>
                     <Card.Text className='my-0 informationCardText'>
-                        <p>{title}:</p>
-                        <p>{variable}</p>
+                        {title}:{variable}
                     </Card.Text>
                 </div>
             </Card.Body>

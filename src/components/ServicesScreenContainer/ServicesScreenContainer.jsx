@@ -39,7 +39,7 @@ const ServicesScreenContainer = () => {
     }, []);
 
 return (
-        <Container className="px-0 mx-0" style={{height:'100%'}} >
+        <Container fluid className="px-0 mx-0" style={{height:'100%'}} >
             {isLoading  ? <Spinner animation="grow" /> : <TempComp /> }
         </Container>
     );

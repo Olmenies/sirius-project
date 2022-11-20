@@ -1,31 +1,73 @@
 [
     {
-        "image": "AiFillCar",
+        "icon": {
+            "title": "AiFillCar",
+            "props": [
+                {
+                    "size":50
+                }
+            ]
+        },
         "title": "Total tránsito generado",
         "variable": 10
     },
     {
-        "image": "AiFillCar",
+        "icon": {
+            "title": "AiFillCar",
+            "props": [
+                {
+                    "size":50
+                }
+            ]
+        },
         "title": "Patentes reconocidas",
         "variable": 10
     },
     {
-        "image": "AiFillCar",
+        "icon": {
+            "title": "AiFillCar",
+            "props": [
+                {
+                    "size":50
+                }
+            ]
+        },
         "title": "No reconocidas",
         "variable": 10
     },
     {
-        "image": "RiBillFill",
+        "icon": {
+            "title": "AiFillDollarCircle",
+            "props": [
+                {
+                    "size":50
+                }
+            ]
+        },
         "title": "Multas emitidas",
         "variable": 10
     },
     {
-        "image": "AiFillDollarCircle",
+        "icon": {
+            "title": "AiFillDollarCircle",
+            "props": [
+                {
+                    "size":50
+                }
+            ]
+        },
         "title": "Solicitud de pagos emitidos",
         "variable": 10
     },
     {
-        "image": "AiFillDollarCircle",
+        "icon": {
+            "title": "AiFillDollarCircle",
+            "props": [
+                {
+                    "size":50
+                }
+            ]
+        },
         "title": "Total facturado",
         "variable": 10
     }

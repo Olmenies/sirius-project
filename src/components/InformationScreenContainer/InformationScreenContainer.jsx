@@ -33,22 +33,13 @@ const InformationScreenContainer = () => {
         return (
             <Row style={{ height: '100%' }}>
                 <Col md='2' style={{ backgroundColor: '#3f51b5', padding: 0 }} > <SidebarContainer /> </Col>
-                <Col> <InformationScreen data={data} /> </Col>
+                <Col md='10'> <InformationScreen data={data} /> </Col>
             </Row>
         )
     }
 
-    /*
-            <Container className="px-0 mx-0" style={{ height: '100%' }} >
-                <Row style={{ height: '100%' }} >
-                    <Col md='2' style={{ backgroundColor: '#3f51b5', padding: 0 }} > <SidebarContainer /> </Col>
-                    <Col> <InformationScreen data={data} /> </Col>
-                </Row>
-                
-            </Container>
-            */
     return (
-        <Container className="px-0 mx-0" style={{ height: '100%' }} >
+        <Container fluid className="px-0 mx-0" style={{ height: '100%' }} >
             {isLoading ? <Spinner animation="grow" /> : <TempComp />}
         </Container>
     );
