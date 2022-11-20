@@ -1,4 +1,5 @@
 import './App.css';
+import './CustomApp.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import { AppContextProvider } from '../src/contexts/appContext';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -13,8 +14,8 @@ function App() {
           <CustomNavbarContainer />
         </header>
         <main>
-          <Container fluid>
-            <Row>
+          <Container fluid style={{height:'100vh'}}>
+            <Row style={{height:'100%'}}>
               <Col>
                 <BrowserRouter>
                   <Routes>

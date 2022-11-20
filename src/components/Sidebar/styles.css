@@ -2,6 +2,8 @@
     background-color: #3f51b5;
     height: 100%;
     padding: 0;
+    box-shadow: 10px 0 5px -8px #888;
+
 }
 
 .sidebarUl{

@@ -1,8 +1,6 @@
 // Imports
-import { useEffect, useState } from 'react';
-import { Container, Row, Col, Button, Form, Modal } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import { ServicesCardContainer } from '../';
-import { useAppContext } from '../../contexts/appContext';
 
 import './styles.css';
 
