@@ -24,11 +24,9 @@ const ServicesScreenContainer = () => {
                 setIsLoading(false);
             })
     }
-
     const TempComp = () => {
         return (
             <Row style={{height:'100%'}}>
-                <Col md='2' style={{ backgroundColor: '#3f51b5', padding: 0 }} > <SidebarContainer /> </Col>
                 <Col> <ServicesScreen data={data} /> </Col>
             </Row>
         )

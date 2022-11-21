@@ -32,7 +32,6 @@ const InformationScreenContainer = () => {
     const TempComp = () => {
         return (
             <Row style={{ height: '100%' }}>
-                <Col md='2' style={{ backgroundColor: '#3f51b5', padding: 0 }} > <SidebarContainer /> </Col>
                 <Col md='10'> <InformationScreen data={data} /> </Col>
             </Row>
         )
