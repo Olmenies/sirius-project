@@ -81,7 +81,7 @@ const Table = ({data, columns}) => {
                 </code>
             </pre>
 
-            <BTable {...getTableProps()}>
+            <BTable striped bordered hover size="sm" {...getTableProps()}>
                 <thead>
                     {headerGroups.map(headerGroup => (
                         <tr {...headerGroup.getHeaderGroupProps()}>

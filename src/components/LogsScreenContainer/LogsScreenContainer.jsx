@@ -32,10 +32,18 @@ const LogsScreenContainer = () => {
         getData();
     }, []);
 
+    const TempComp = () => {
+        return (
+            <Row style={{ height: '100%' }}>
+                <Col> <LogsScreen data={data} /> </Col>
+            </Row>
+        )
+    }
+
     return (
-        <div>
-            {isLoading ? <Spinner animation="grow" /> : <LogsScreen data={data} />}
-        </div>
+        <Container fluid className="px-0 mx-0" style={{ height: '100%' }} >
+            {isLoading ? <Spinner animation="grow" /> : <TempComp />}
+        </Container>
     );
 }
 
