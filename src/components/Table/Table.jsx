@@ -2,15 +2,18 @@
 import { useMemo } from 'react';
 import { useTable, useSortBy, usePagination, useFilters } from 'react-table';
 import BTable from 'react-bootstrap/Table';
+import { ButtonToolbar, ButtonGroup, Button, Container, Row, Col, Form } from 'react-bootstrap';
+import './styles.css';
+
 
 // Component start
-const Table = ({data, columns}) => {
+const Table = ({ data, columns }) => {
 
     const DefaultColumnFilter = ({
         column: { filterValue, preFilteredRows, setFilter },
     }) => {
         const count = preFilteredRows.length
-    
+
         return (
             <input
                 value={filterValue || ''}
@@ -21,7 +24,7 @@ const Table = ({data, columns}) => {
             />
         )
     }
-    
+
     const defaultColumn = useMemo(
         () => ({
             // Let's set up our default Filter UI
@@ -63,7 +66,7 @@ const Table = ({data, columns}) => {
     )
 
     return (
-        <div>
+        <Container className='mb-5'>
 
             <pre style={{ display: 'none' }}>
                 <code>
@@ -81,96 +84,99 @@ const Table = ({data, columns}) => {
                 </code>
             </pre>
 
-            <BTable striped bordered hover size="sm" {...getTableProps()}>
-                <thead>
-                    {headerGroups.map(headerGroup => (
-                        <tr {...headerGroup.getHeaderGroupProps()}>
-                            {headerGroup.headers.map(column => (
-                                // Add the sorting props to control sorting. For this example
-                                // we can add them into the header props
-                                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                                    {column.render('Header')}
-                                    {/* Add a sort direction indicator */}
-                                    <span>
-                                        {column.isSorted
-                                            ? column.isSortedDesc
-                                                ? ' 🔽'
-                                                : ' 🔼'
-                                            : ''}
-                                    </span>
-                                    {/* Render the columns filter UI */}
-                                    <div>{column.canFilter ? column.render('Filter') : null}</div>
-                                </th>
+            <Row>
+                <BTable striped bordered hover size="sm" {...getTableProps()}>
+                    <thead>
+                        {headerGroups.map(headerGroup => (
+                            <tr {...headerGroup.getHeaderGroupProps()}>
+                                {headerGroup.headers.map(column => (
+                                    // Add the sorting props to control sorting. For this example
+                                    // we can add them into the header props
+                                    <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                                        {column.render('Header')}
+                                        {/* Add a sort direction indicator */}
+                                        <span>
+                                            {column.isSorted
+                                                ? column.isSortedDesc
+                                                    ? ' 🔽'
+                                                    : ' 🔼'
+                                                : ''}
+                                        </span>
+                                        {/* Render the columns filter UI */}
+                                        <div>{column.canFilter ? column.render('Filter') : null}</div>
+                                    </th>
+                                ))}
+                            </tr>
+                        ))}
+                    </thead>
+                    <tbody {...getTableBodyProps()}>
+                        {page.map(
+                            (row, i) => {
+                                prepareRow(row);
+                                return (
+                                    <tr {...row.getRowProps()}>
+                                        {row.cells.map(cell => {
+                                            return (
+                                                <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                                            )
+                                        })}
+                                    </tr>
+                                )
+                            }
+                        )}
+                    </tbody>
+                </BTable>
+
+            </Row>
+            <Row className="pagination">
+
+                <Col>                <ButtonToolbar>
+                    <ButtonGroup>
+                        <Button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+                            {'<<'}
+                        </Button>{' '}
+                        <Button onClick={() => previousPage()} disabled={!canPreviousPage}>
+                            {'<'}
+                        </Button>{' '}
+                        <Button onClick={() => nextPage()} disabled={!canNextPage}>
+                            {'>'}
+                        </Button>{' '}
+                        <Button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+                            {'>>'}
+                        </Button>{' '}
+                    </ButtonGroup>
+                </ButtonToolbar>
+                </Col>
+
+                <Col>
+                    <span>
+                        Página{' '}
+                        <strong>
+                            {pageIndex + 1} of {pageOptions.length}
+                        </strong>{' '}
+                    </span>
+                </Col>
+
+                <Col md='6'>
+                    <Form className='logsForm'>
+                        <Form.Label>Ir a la página</Form.Label>
+                        <Form.Control type="number" placeholder="0" />
+                        <Form.Select
+                            value={pageSize}
+                            onChange={e => {
+                                setPageSize(Number(e.target.value))
+                            }}
+                        >
+                            {[10, 20, 30, 40, 50].map(pageSize => (
+                                <option key={pageSize} value={pageSize}>
+                                    Mostrar {pageSize}
+                                </option>
                             ))}
-                        </tr>
-                    ))}
-                </thead>
-                <tbody {...getTableBodyProps()}>
-                    {page.map(
-                        (row, i) => {
-                            prepareRow(row);
-                            return (
-                                <tr {...row.getRowProps()}>
-                                    {row.cells.map(cell => {
-                                        return (
-                                            <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                                        )
-                                    })}
-                                </tr>
-                            )
-                        }
-                    )}
-                </tbody>
-            </BTable>
-
-
-            <div className="pagination">
-                <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-                    {'<<'}
-                </button>{' '}
-                <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-                    {'<'}
-                </button>{' '}
-                <button onClick={() => nextPage()} disabled={!canNextPage}>
-                    {'>'}
-                </button>{' '}
-                <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
-                    {'>>'}
-                </button>{' '}
-                <span>
-                    Página{' '}
-                    <strong>
-                        {pageIndex + 1} of {pageOptions.length}
-                    </strong>{' '}
-                </span>
-                <span>
-                    | Ir a la página:{' '}
-                    <input
-                        type="number"
-                        defaultValue={pageIndex + 1}
-                        onChange={e => {
-                            const page = e.target.value ? Number(e.target.value) - 1 : 0
-                            gotoPage(page)
-                        }}
-                        style={{ width: '100px' }}
-                    />
-                </span>{' '}
-                <select
-                    value={pageSize}
-                    onChange={e => {
-                        setPageSize(Number(e.target.value))
-                    }}
-                >
-                    {[10, 20, 30, 40, 50].map(pageSize => (
-                        <option key={pageSize} value={pageSize}>
-                            Mostrar {pageSize}
-                        </option>
-                    ))}
-                </select>
-            </div>
-
-
-        </div>
+                        </Form.Select>
+                    </Form>
+                </Col>
+            </Row>
+        </Container>
     )
 }
 

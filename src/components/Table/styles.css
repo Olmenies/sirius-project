@@ -1,0 +1,12 @@
+.logsForm{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logsForm * {
+    width: 33%;
+    height: 100%;
+    margin: 0;
+}
