@@ -30,17 +30,17 @@ const LogsScreen = () => {
             {
                 columns,
                 data,
-                initialState: { pageIndex: 2 },
+                initialState: { pageIndex: 0 },
             },
             useSortBy,
-            usePagination
+            usePagination,
         )
 
 
         return (
             <div>
 
-                <pre>
+                <pre style={{display:'none'}}>
                     <code>
                         {JSON.stringify(
                             {
@@ -111,13 +111,13 @@ const LogsScreen = () => {
                         {'>>'}
                     </button>{' '}
                     <span>
-                        Page{' '}
+                        Página{' '}
                         <strong>
                             {pageIndex + 1} of {pageOptions.length}
                         </strong>{' '}
                     </span>
                     <span>
-                        | Go to page:{' '}
+                        | Ir a la página:{' '}
                         <input
                             type="number"
                             defaultValue={pageIndex + 1}
@@ -136,7 +136,7 @@ const LogsScreen = () => {
                     >
                         {[10, 20, 30, 40, 50].map(pageSize => (
                             <option key={pageSize} value={pageSize}>
-                                Show {pageSize}
+                                Mostrar {pageSize}
                             </option>
                         ))}
                     </select>
