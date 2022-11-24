@@ -1,11 +1,37 @@
 // Imports
 import { useMemo } from 'react';
-import { useTable, useSortBy, usePagination } from 'react-table';
+import { useTable, useSortBy, usePagination, useFilters } from 'react-table';
 
 // Component start
 const LogsScreen = () => {
 
+    function DefaultColumnFilter({
+        column: { filterValue, preFilteredRows, setFilter },
+    }) {
+        const count = preFilteredRows.length
+
+        return (
+            <input
+                value={filterValue || ''}
+                onChange={e => {
+                    setFilter(e.target.value || undefined) // Set undefined to remove the filter entirely
+                }}
+                placeholder={`Search ${count} records...`}
+            />
+        )
+    }
+
     const Table = ({ columns, data }) => {
+
+        const defaultColumn = useMemo(
+            () => ({
+                // Let's set up our default Filter UI
+                Filter: DefaultColumnFilter,
+            }),
+            []
+        );
+
+
         const {
             getTableProps,
             getTableBodyProps,
@@ -31,7 +57,9 @@ const LogsScreen = () => {
                 columns,
                 data,
                 initialState: { pageIndex: 0 },
+                defaultColumn, // Be sure to pass the defaultColumn option
             },
+            useFilters,
             useSortBy,
             usePagination,
         )
@@ -40,7 +68,7 @@ const LogsScreen = () => {
         return (
             <div>
 
-                <pre style={{display:'none'}}>
+                <pre style={{ display: 'none' }}>
                     <code>
                         {JSON.stringify(
                             {
@@ -73,6 +101,8 @@ const LogsScreen = () => {
                                                     : ' 🔼'
                                                 : ''}
                                         </span>
+                                        {/* Render the columns filter UI */}
+                                        <div>{column.canFilter ? column.render('Filter') : null}</div>
                                     </th>
                                 ))}
                             </tr>
@@ -181,7 +211,7 @@ const LogsScreen = () => {
             excepCol: 'Lorem ipsum dolor sit amet.'
         },
         {
-            idCol: '01',
+            idCol: '02',
             msgCol: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, quas?',
             tmpCol: '69',
             excepCol: 'Lorem ipsum dolor sit amet.'
