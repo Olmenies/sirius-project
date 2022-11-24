@@ -18,7 +18,7 @@ const Table = ({ data, columns }) => {
             <input
                 value={filterValue || ''}
                 onChange={e => {
-                    setFilter(e.target.value || undefined) // Set undefined to remove the filter entirely
+                    setFilter(e.target.value || undefined)
                 }}
                 placeholder={`Buscar en ${count} registros...`}
             />
@@ -27,7 +27,6 @@ const Table = ({ data, columns }) => {
 
     const defaultColumn = useMemo(
         () => ({
-            // Let's set up our default Filter UI
             Filter: DefaultColumnFilter,
         }),
         []
@@ -58,7 +57,7 @@ const Table = ({ data, columns }) => {
             columns,
             data,
             initialState: { pageIndex: 0 },
-            defaultColumn, // Be sure to pass the defaultColumn option
+            defaultColumn,
         },
         useFilters,
         useSortBy,
@@ -92,16 +91,18 @@ const Table = ({ data, columns }) => {
                                 {headerGroup.headers.map(column => (
                                     // Add the sorting props to control sorting. For this example
                                     // we can add them into the header props
-                                    <th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                                        {column.render('Header')}
-                                        {/* Add a sort direction indicator */}
-                                        <span>
-                                            {column.isSorted
-                                                ? column.isSortedDesc
-                                                    ? ' 🔽'
-                                                    : ' 🔼'
-                                                : ''}
-                                        </span>
+                                    <th>
+                                        <div  {...column.getHeaderProps(column.getSortByToggleProps())}>
+                                            {column.render('Header')}
+                                            {/* Add a sort direction indicator */}
+                                            <span>
+                                                {column.isSorted
+                                                    ? column.isSortedDesc
+                                                        ? ' 🔽'
+                                                        : ' 🔼'
+                                                    : ''}
+                                            </span>
+                                        </div>
                                         {/* Render the columns filter UI */}
                                         <div>{column.canFilter ? column.render('Filter') : null}</div>
                                     </th>
@@ -128,52 +129,64 @@ const Table = ({ data, columns }) => {
                 </BTable>
 
             </Row>
-            <Row className="pagination">
+            <Row className="pagination align-items-center">
 
-                <Col>                <ButtonToolbar>
-                    <ButtonGroup>
-                        <Button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-                            {'<<'}
-                        </Button>{' '}
-                        <Button onClick={() => previousPage()} disabled={!canPreviousPage}>
-                            {'<'}
-                        </Button>{' '}
-                        <Button onClick={() => nextPage()} disabled={!canNextPage}>
-                            {'>'}
-                        </Button>{' '}
-                        <Button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
-                            {'>>'}
-                        </Button>{' '}
-                    </ButtonGroup>
-                </ButtonToolbar>
+                <Col>
+                    <ButtonToolbar>
+                        <ButtonGroup>
+                            <Button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+                                {'<<'}
+                            </Button>{' '}
+                            <Button onClick={() => previousPage()} disabled={!canPreviousPage}>
+                                {'<'}
+                            </Button>{' '}
+                            <Button onClick={() => nextPage()} disabled={!canNextPage}>
+                                {'>'}
+                            </Button>{' '}
+                            <Button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+                                {'>>'}
+                            </Button>{' '}
+                        </ButtonGroup>
+                    </ButtonToolbar>
                 </Col>
 
                 <Col>
                     <span>
                         Página{' '}
                         <strong>
-                            {pageIndex + 1} of {pageOptions.length}
+                            {pageIndex + 1} de {pageOptions.length}
                         </strong>{' '}
                     </span>
                 </Col>
 
-                <Col md='6'>
-                    <Form className='logsForm'>
-                        <Form.Label>Ir a la página</Form.Label>
-                        <Form.Control type="number" placeholder="0" />
-                        <Form.Select
-                            value={pageSize}
-                            onChange={e => {
-                                setPageSize(Number(e.target.value))
-                            }}
-                        >
-                            {[10, 20, 30, 40, 50].map(pageSize => (
-                                <option key={pageSize} value={pageSize}>
-                                    Mostrar {pageSize}
-                                </option>
-                            ))}
-                        </Form.Select>
-                    </Form>
+                <Col className='d-flex flex-row align-items-center justify-content-around'>
+                    <span>Ir a la página:</span>
+                    <input
+                        type="number"
+                        defaultValue={pageIndex + 1}
+                        onChange={e => {
+                            const page = e.target.value ? Number(e.target.value) - 1 : 0
+                            gotoPage(page)
+                        }}
+                        style={{ width: '100px' }}
+                        className="form-control"
+                    />
+                </Col>
+
+
+                <Col>
+                    <select
+                        value={pageSize}
+                        onChange={e => {
+                            setPageSize(Number(e.target.value))
+                        }}
+                    >
+                        {[10, 20, 30, 40, 50].map(pageSize => (
+                            <option key={pageSize} value={pageSize}>
+                                Mostrar {pageSize}
+                            </option>
+                        ))}
+                    </select>
                 </Col>
             </Row>
         </Container>
