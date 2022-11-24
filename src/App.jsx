@@ -3,7 +3,7 @@ import './CustomApp.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import { AppContextProvider } from './contexts/appContext';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { CustomNavbarContainer, ServicesScreenContainer, InformationScreenContainer, SidebarContainer } from './components';
+import { CustomNavbarContainer, ServicesScreenContainer, InformationScreenContainer, SidebarContainer, LogsScreenContainer } from './components';
 
 function App() {
   return (
@@ -24,6 +24,7 @@ function App() {
                   <Routes>
                     <Route path='/' element={<ServicesScreenContainer />} />
                     <Route path="/information" element={<InformationScreenContainer />} />
+                    <Route path="/logs" element={<LogsScreenContainer />} />
                     <Route path="*" element={<ServicesScreenContainer />} />
                   </Routes>
                 </Col>

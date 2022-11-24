@@ -32,7 +32,7 @@ const InformationScreenContainer = () => {
     const TempComp = () => {
         return (
             <Row style={{ height: '100%' }}>
-                <Col md='10'> <InformationScreen data={data} /> </Col>
+                <Col> <InformationScreen data={data} /> </Col>
             </Row>
         )
     }

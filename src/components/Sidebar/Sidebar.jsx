@@ -1,6 +1,6 @@
 // Imports
 import { NavLink } from 'react-router-dom';
-import { AiFillSignal, AiFillQuestionCircle } from 'react-icons/ai';
+import { AiFillSignal, AiFillQuestionCircle, AiOutlineBars } from 'react-icons/ai';
 import './styles.css';
 
 // Components
@@ -18,6 +18,12 @@ const Sidebar = () => {
                     <li className='sidebarUlLi' >
                         <AiFillQuestionCircle color="black" size={30}/>
                         <p className='sidebarP'>Información</p>
+                    </li>
+                </NavLink>
+                <NavLink to='/logs' className='sidebarNavLink'>
+                    <li className='sidebarUlLi' >
+                        <AiOutlineBars color="black" size={30}/>
+                        <p className='sidebarP'>Logs</p>
                     </li>
                 </NavLink>
             </ul>
